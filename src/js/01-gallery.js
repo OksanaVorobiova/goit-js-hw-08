@@ -31,32 +31,11 @@ galleryEl.innerHTML = galleryMarkup;
 
 galleryEl.addEventListener('click', onGalleryClick);
 
-
-function onGalleryClick(e) {
-    e.preventDefault();
-    
-    let gallery = new SimpleLightbox('.gallery a', {
+let gallery = new SimpleLightbox('.gallery a', {
     captionsData: 'alt',
     captionsDelay: 250,
 });
 
-    gallery.on('shown.simplelightbox', () => {
-        window.addEventListener('keydown', (event) => {
-            if (event.code !== 'Escape') {
-                return;
-            }
-
-            gallery.close();
-        });
-    });
-
-    gallery.on('closed.simplelightbox', () => {
-        window.removeEventListener('keydown', (event) => {
-            if (event.code !== 'Escape') {
-                return;
-            }
-
-            gallery.close();
-        });
-    });
+function onGalleryClick(e) {
+    e.preventDefault();
 }
