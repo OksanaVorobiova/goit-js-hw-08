@@ -26,11 +26,9 @@ function onFormInput(e) {
 }
 
 
-
-
 function returnData() {
     const savedData = localStorage.getItem(STORAGE_KEY);
-    const parsedData = Json.parse(savedData);
+    const parsedData = JSON.parse(savedData);
        
     if (parsedData) {
         inputEl.value = feedbackData.email || '';
@@ -45,8 +43,6 @@ function onFormSubmit(ev) {
     ev.currentTarget.reset();
     localStorage.removeItem(STORAGE_KEY);
     feedbackData = {};
-   
-
 }
 
 
