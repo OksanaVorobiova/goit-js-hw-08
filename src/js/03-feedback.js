@@ -20,7 +20,7 @@ returnData();
 
 function onFormInput(e) {
     feedbackData[e.target.name] = e.target.value;
-    console.log(feedbackData);
+   // console.log(feedbackData);
     localStorage.setItem(STORAGE_KEY, JSON.stringify(feedbackData));
 
 }
@@ -39,6 +39,11 @@ function returnData() {
 
 function onFormSubmit(ev) {
     ev.preventDefault();
+
+    if (!inputEl.value || !textarea.value) {
+        alert('fill in all the fields');
+    }
+    
     console.log(feedbackData);
     ev.currentTarget.reset();
     localStorage.removeItem(STORAGE_KEY);
